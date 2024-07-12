@@ -18,4 +18,11 @@ if "partitionDate" in extracted_values:
 if "anotherColumn" in extracted_values:
   print(f"anotherColumn: {extracted_values['anotherColumn']}")
 
+# Check for partitionDate and call downstream method
+if "partitionDate" in extracted_values:
+  partition_date = extracted_values["partitionDate"]
+  downstream_method(partition_date)
+else:
+  print("partitionDate not found in the string")
+
 # You can access other extracted values using their keys from extracted_values dictionary
