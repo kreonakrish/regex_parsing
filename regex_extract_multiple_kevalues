@@ -1,0 +1,21 @@
+import re
+
+# Define the string
+string = 'location="s3://bucketname-11123-dev/seal/refined/tablesname/partitionDate=20240607;anotherColumn=value2"'
+
+# Use regular expression to extract key-value pairs
+pattern = r'(\w+)=(.*?)(?=")'
+matches = re.findall(pattern, string)
+
+# Create a dictionary to store extracted values
+extracted_values = {}
+for key, value in matches:
+  extracted_values[key] = value
+
+# Check if desired keys exist and print them
+if "partitionDate" in extracted_values:
+  print(f"partitionDate: {extracted_values['partitionDate']}")
+if "anotherColumn" in extracted_values:
+  print(f"anotherColumn: {extracted_values['anotherColumn']}")
+
+# You can access other extracted values using their keys from extracted_values dictionary
